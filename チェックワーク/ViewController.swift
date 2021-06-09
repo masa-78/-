@@ -12,6 +12,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        button1.backgroundColor = .purple
+        button2.backgroundColor = .purple
+        
+        button1.setTitleColor(UIColor.white, for: UIControl.State.normal)
+        button2.setTitleColor(UIColor.white, for: UIControl.State.normal)
+        
+        button1.layer.cornerRadius = 10
+        button2.layer.cornerRadius = 10
     }
 
     @IBOutlet var label1: UILabel!
@@ -29,9 +38,13 @@ class ViewController: UIViewController {
         
         label2.text = foodArray[foodIndex]
         
+        
+        
         if index > 3 {
             index = 0
         }
+        
+        self.viewRed()
     }
     
     @IBAction func next(){
@@ -43,6 +56,17 @@ class ViewController: UIViewController {
             index = 0
         }
         
+        self.viewRed()
+        
+    }
+    func viewRed() {
+        
+        if label2.text == "焼肉" {
+            view.backgroundColor = UIColor.red
+        }
+        else {
+            view.backgroundColor = UIColor.white
+        }
     }
 }
 
